@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+
+</head>
+<body>
+<div class="frame">
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <p>Start_Date:<input type="date" value="Start_date" name="Start_date"></p>
+    <p>End_Date:<input type="date" value="End_date" name="End_date"></p>
+    <input type="submit" name="submit" value="submit">
+</form>
+</div>
+<style>
+
+    div{
+    width:20%;
+    padding: 10px;
+    margin:auto;
+    border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	background: linear-gradient(to top right, darkmagenta 0%, hotpink 100%);
+	color: #333;
+	font-family: "Open Sans", Helvetica, sans-serif;}
+</style>
+
+<canvas id="myChart" width="600" height="400"></canvas>
+<canvas id="myChart_pie" width="600" height="400" ></canvas>
+
+
+
+
+<script>
+Chart.defaults.global.responsive = false;
+
+// define the chart data
+var chartData = {
+  backgroundColor: "#F5DEB3",
+  labels : [{% for item in labels %}
+             "{{item}}",
+            {% endfor %}],
+  datasets : [{
+      label: '{{ legend }}',
+      fill: true,
+      lineTension: 0.1,
+      backgroundColor: "rgba(75,192,192,0.4)",
+      borderColor: "rgba(75,192,192,1)",
+      borderCapStyle: 'butt',
+      borderDash: [],
+      borderDashOffset: 0.0,
+      borderJoinStyle: 'miter',
+      pointBorderColor: "rgba(75,192,192,1)",
+      pointBackgroundColor: "#fff",
+      pointBorderWidth: 1,
+      pointHoverRadius: 5,
+      pointHoverBackgroundColor: "rgba(75,192,192,1)",
+      pointHoverBorderColor: "rgba(220,220,220,1)",
+      pointHoverBorderWidth: 2,
+      pointRadius: 1,
+      pointHitRadius: 10,
+      data : [{% for item in values %}
+                {{item}},
+              {% endfor %}],
+      spanGaps: false
+  }]
+}
+
+
+// get chart canvas
+var ctx = document.getElementById("myChart").getContext("2d");
+// create the chart using the chart canvas
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: chartData,
+});
+</script>
+
+
+<script>
+Chart.defaults.global.responsive = false;
+
+// define the chart data
+var chartData = {
+  labels : [{% for item in hashtags %}
+             "{{item}}",
+            {% endfor %}],
+  datasets : [{
+      label: '{{ pie_legend }}',
+      fill: true,
+      lineTension: 0.1,
+      backgroundColor: "rgba(75,192,192,0.4)",
+      borderColor: "rgba(75,192,192,1)",
+      borderCapStyle: 'butt',
+      borderDash: [],
+      borderDashOffset: 0.0,
+      borderJoinStyle: 'miter',
+      pointBorderColor: "rgba(75,192,192,1)",
+      pointBackgroundColor: "#fff",
+      pointBorderWidth: 1,
+      pointHoverRadius: 5,
+      pointHoverBackgroundColor: "rgba(75,192,192,1)",
+      pointHoverBorderColor: "rgba(220,220,220,1)",
+      pointHoverBorderWidth: 2,
+      pointRadius: 1,
+      pointHitRadius: 10,
+      data : [{% for item in hashtags_count %}
+                {{item}},
+              {% endfor %}],
+      spanGaps: false
+  }]
+}
+
+// get chart canvas
+var ctx = document.getElementById("myChart_pie").getContext("2d");
+// create the chart using the chart canvas
+var myChart1 = new Chart(ctx, {
+      type:'pie',
+
+  data: chartData,
+});
+</script>
+
+
+
+
+</body>
+<style>
+    myChart_pie
+    {
+    float:right;
+    background-image: conic-gradient(
+                pink 70deg,
+                lightblue 0 235deg,
+                orange 0);
+    }
+</style>
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Dashboard</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="static/css/font-face.css" rel="stylesheet" media="all">
+      <link type="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
+    <link href="static/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="static/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="static/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="static/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="static/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <link href="static/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+
+    <!-- Main CSS-->
+    <link href="static/css/theme.css" rel="stylesheet" media="all">
+
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <a class="logo" href="index.html" >
+                            <h4>Covid-19 Analysis</h4>
+                        </a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- END HEADER MOBILE-->
+
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <a href="#">
+                    <h4>Covid-19 Analysis</h4>
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                        <li>
+                            <a href="{{ url_for('upload_data') }}">
+                                <i class="fas fa-chart-bar"></i>Upload</a>
+                        </li>
+
+
+                        <li class="active has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="{{ url_for('covid_analysis') }}" >Covid-19 Tweets Analysis</a>
+                                </li>
+
+
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                            <div class="header-button">
+                                <div class="noti-wrap">
+                                </div>
+                                <div class="account-wrap">
+                                    <div class="account-item clearfix js-item-menu">
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- HEADER DESKTOP-->
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="overview-wrap">
+                                    <h2 class="title-1">Please upload Data</h2>
+
+
+
+
+                                </div>
+                                <br>
+<div id="container">
+  <form action="/upload_data" method="POST" enctype="multipart/form-data" novalidate="" class="box has-advanced-upload">
+    <div class="box-input">
+      <svg x="0px" y="0px" viewBox="0 0 64 62" style="enable-background:new 0 0 64 62;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+</style>
+<g id="spa-launch">
+	<path class="st0" d="M33,27.1h-8c0,0-2-6-2-12c0-8,6-14,6-14s6,6,6,14C35,21.1,33,27.1,33,27.1z"/>
+	<line class="st0" x1="29" y1="17.1" x2="29" y2="27.1"/>
+	<polyline class="st0" points="25,27.1 17,27.1 17,23.1 23.1,17.1 	"/>
+	<polyline class="st0" points="33,27.1 41,27.1 41,23.1 34.9,17.1 	"/>
+	<path class="st0" d="M18,41.2c0.5-5.7,5.2-10.1,11-10.1c5.1,0,9.3,3.4,10.6,8.1"/>
+	<path class="st0" d="M48,41.1c-0.2-3.4-3.1-6-6.5-6c-1.2,0-2.4,0.3-3.3,0.9"/>
+	<path class="st0" d="M42.3,47.1c0,0-1-4-6-4"/>
+	<path class="st0" d="M26.3,43.1c-3-1-4,2-4,2s-3-2-5,0s-1,4-1,4"/>
+	<path class="st0" d="M9,46.1c-0.8-0.6-1.9-1-3-1c-2.8,0-5,2.2-5,5s2.2,5,5,5h46c2.8,0,5-2.2,5-5c0-5-4-9-9-9
+		c-0.9,0-1.8,0.1-2.6,0.4"/>
+	<path class="st0" d="M18.8,37.9c-1.1-0.5-2.4-0.8-3.8-0.8c-4.6,0-8.5,3.5-8.9,8"/>
+</g>
+</svg>
+      <input type="file" name="files[]" id="file" class="box-file" data-multiple-caption="{count} files selected" multiple="">
+      <button type="submit" class="button">Upload</button>
+    </div>
+
+
+      <div class="upload-success">
+
+      {% for message in get_flashed_messages() %}
+                <p class="flash_msg"><h2 class="upload-color">{{ message }}</h2></p>
+    {% endfor %}
+            </div>
+
+    <div class="box-uploading">Uploading…</div>
+    <div class="box-success">Done! <a href="https://css-tricks.com/examples/DragAndDropFileUploading//?submit-on-demand" class="box-restart" role="button" data-unsp-sanitized="clean">Upload more?</a></div>
+    <div class="box-error">Error! <span></span>. <a href="https://css-tricks.com/examples/DragAndDropFileUploading//?submit-on-demand" class="box-restart" role="button" data-unsp-sanitized="clean">Try again!</a></div>
+    <input type="hidden" name="ajax" value="1"></form>
+
+</div>
+
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="row m-t-25">
+                            <div class="col-sm-6 col-lg-3">
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
+        </div>
+
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="static/vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="static/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="static/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="static/vendor/slick/slick.min.js">
+    </script>
+    <script src="static/vendor/wow/wow.min.js"></script>
+    <script src="static/vendor/animsition/animsition.min.js"></script>
+    <script src="static/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="static/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="static/vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="static/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="static/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="static/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="static/vendor/select2/select2.min.js"></script>
+    <script src="static/moment/min/moment.min.js"></script>
+    <script src="static/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+<script>
+var $j = jQuery.noConflict();
+	$(function() {
+		$j( ".dtpick" ).datepicker();
+	});
+
+	$(function() {
+		$j( ".dtpick1" ).datepicker();
+	});
+	</script>
+
+    <script src="static/js/main.js"></script>
+
+
+<script>
+function preview_upload(event) {
+  if ("{{status}}"!='upload')
+  {
+  alert("Please Upload Data");
+event.preventDefault();
+  }
+
+}
+</script>
+
+
+
+
+</body>
+
+<style>
+
+    .account-wrap {
+    position: relative;
+    margin-left: 810px;
+}
+
+
+
+.submit-button {
+    font-size: 20px;
+    position:relative;
+    font-weight: 500;
+    color: #000;
+    background-color: #21abcd;
+    border: none;
+    padding: 6px 30px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    display: inline;
+    margin-top:10px;
+}
+
+.submit-button:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+
+}
+body {
+  background: #0CE9AF;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  font-family: Lato;
+  height: 100%;
+  margin: auto;
+  text-shadow: 0 0px 2px rgba(245, 245, 245, .25);
+}
+
+#container {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, .75);
+  margin: auto;
+  width:500px;
+}
+
+.box-input {
+  text-align: center;
+}
+
+.box-input svg {
+  width: 10rem;
+  height: 10rem;
+  vertical-align: middle;
+  fill: currentColor;
+}
+
+form {
+  color: #fff;
+}
+
+input[type="button" i],
+input[type="file" i]::-webkit-file-upload-button {
+  display: none!important;
+}
+
+.box.has-advanced-upload {
+  -webkit-transition: all .15s ease-in-out, background-color .15s linear;
+  transition: all .15s ease-in-out, background-color .15s linear;
+}
+
+.box {
+  font-size: 1.25rem;
+  background-color: rgba(0, 142, 198, 1);
+  border: 4px solid #fff;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, .75);
+  padding: 5rem 8rem;
+  width: 100%;
+}
+
+.js .box-file {
+  width: .1px;
+  height: .1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.box-input label {
+  margin: auto;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  overflow: hidden;
+}
+
+.js .box-file + label * {
+  pointer-events: none;
+}
+
+.js .box-file:focus + label {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+button {
+  background: #0CE9AF;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+  color: #fff;
+  display: -webkit-box;
+  display: flex;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: auto;
+  margin-top: 2.5rem;
+  overflow: auto;
+  padding: 1rem 1.5rem;
+}
+
+button:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .5);
+}
+
+button:active {
+  box-shadow: none;
+}
+
+.box-uploading {
+  font-style: italic;
+}
+
+.box-success {
+  -webkit-transition: appear-from-inside .25s ease-in-out;
+  transition: appear-from-inside .25s ease-in-out;
+}
+
+.box__success {
+  -webkit-animation: appear-from-inside .25s ease-in-out;
+          animation: appear-from-inside .25s ease-in-out;
+}
+
+@-webkit-keyframes appear-from-inside {
+  from {
+    -webkit-transform: translateY( -50%) scale( 0);
+            transform: translateY( -50%) scale( 0);
+  }
+  75% {
+    -webkit-transform: translateY( -50%) scale( 1.1);
+            transform: translateY( -50%) scale( 1.1);
+  }
+  to {
+    -webkit-transform: translateY( -50%) scale( 1);
+            transform: translateY( -50%) scale( 1);
+  }
+}
+
+@keyframes appear-from-inside {
+  from {
+    -webkit-transform: translateY( -50%) scale( 0);
+            transform: translateY( -50%) scale( 0);
+  }
+  75% {
+    -webkit-transform: translateY( -50%) scale( 1.1);
+            transform: translateY( -50%) scale( 1.1);
+  }
+  to {
+    -webkit-transform: translateY( -50%) scale( 1);
+            transform: translateY( -50%) scale( 1);
+  }
+}
+
+.box-restart {
+  font-weight: 700;
+}
+
+input,
+textarea,
+select {
+  border-radius: 0;
+  border: none;
+}
+
+input {
+  line-height: normal;
+}
+
+.box-dragndrop,
+.box-icon,
+.box-uploading,
+.box-success,
+.box-error {
+  display: none;
+}
+
+.box.has-advanced-upload .box-dragndrop {
+  display: inline;
+}
+
+strong {
+  color: #fff;
+}
+
+
+.upload-success
+{
+margin-top:70px;
+margin-left:50px;
+  }
+
+  .upload-color{
+    color:white;
+    font-weight:bold;
+    font-size:30px;
+}
+
+
+
+</style>
+
+
+</html>
+<!-- end document-->
